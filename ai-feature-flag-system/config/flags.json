@@ -1,0 +1,4 @@
+{
+  "experiment": "model_ab_test",
+  "rollout_percentage": 50
+}
