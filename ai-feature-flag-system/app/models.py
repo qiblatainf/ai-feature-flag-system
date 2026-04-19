@@ -1,5 +1,9 @@
+import time
+
 def model_a(input_text: str):
-    return f"[A] Simple response: {input_text[:20]}"
+    time.sleep(0.1)  # fast
+    return f"[FAST MODEL] {input_text}"
 
 def model_b(input_text: str):
-    return f"[B] Advanced response: {input_text.upper()}"
+    time.sleep(0.3)  # slower but "better"
+    return f"[SMART MODEL] {input_text.upper()}"

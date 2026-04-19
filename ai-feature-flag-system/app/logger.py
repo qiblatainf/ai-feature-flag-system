@@ -1,9 +1,10 @@
-# Logger (MLOps signal)
 import json
 from datetime import datetime
 
-def log_event(data):
+LOG_FILE = "data/logs.jsonl"
+
+def log_event(data: dict):
     data["timestamp"] = datetime.utcnow().isoformat()
 
-    with open("data/logs.jsonl", "a") as f:
+    with open(LOG_FILE, "a") as f:
         f.write(json.dumps(data) + "\n")

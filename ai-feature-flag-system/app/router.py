@@ -1,13 +1,27 @@
-import hashlib
-from app.config import load_config
+import random
+from app.models import model_a, model_b
+from app.config import load_flags
 
-def route_request(user_id: str):
-    config = load_config()
-    rollout = config["rollout_percentage"]
+def select_variant():
+    config = load_flags()
+    variants = config["variants"]
 
-    hash_val = int(hashlib.md5(user_id.encode()).hexdigest(), 16)
-    bucket = hash_val % 100
+    r = random.random()
+    cumulative = 0
 
-    if bucket < rollout:
-        return "model_b"
-    return "model_a"
+    for v in variants:
+        cumulative += v["weight"]
+        if r < cumulative:
+            return v["name"]
+
+def route_request(input_text: str, context: dict = None):
+    # Example: long input → better model
+    if len(input_text) > 100:
+        return "model_b", model_b(input_text)
+
+    variant = select_variant()
+
+    if variant == "model_a":
+        return variant, model_a(input_text)
+
+    return variant, model_b(input_text)

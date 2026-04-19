@@ -1,4 +1,8 @@
 {
-  "experiment": "model_ab_test",
-  "rollout_percentage": 50
+  "experiment_name": "realtime_routing",
+  "strategy": "weighted",
+  "variants": [
+    { "name": "model_a", "weight": 0.7 },
+    { "name": "model_b", "weight": 0.3 }
+  ]
 }
