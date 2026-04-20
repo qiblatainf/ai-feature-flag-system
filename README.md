@@ -2,11 +2,12 @@
 
 Dynamically route requests between different AI models/prompts using feature flags, and measure performance.
 
-Think:
-“Which model is better?”
-“Can I safely roll out a new prompt?”
+Think: \
+“Which model is better?” \
+“Can I safely roll out a new prompt?”\
 “How do I A/B test AI in production?”
 
+```python
 Client Request
    ↓
 Feature Flag Engine
@@ -18,9 +19,11 @@ Model A / Model B
 Response Logger
    ↓
 Metrics Store
+```
 
 ## Repo Structure
-inferflow/
+```python
+ai-feature-flag-system/
 ├── app/
 │   ├── main.py              # FastAPI entry
 │   ├── router.py            # feature flag logic
@@ -41,3 +44,4 @@ inferflow/
 ├── train.py                 # (for MLOps simulation)
 ├── Dockerfile              # (later for cloud)
 ├── .github/workflows/ci.yml
+```
