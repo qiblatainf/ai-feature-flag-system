@@ -2,6 +2,8 @@
 
 Dynamically route requests between different AI models/prompts using feature flags, and measure performance.
 
+Works like orchestration.
+
 Think: \
 “Which model is better?” \
 “Can I safely roll out a new prompt?”\
